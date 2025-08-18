@@ -1,0 +1,27 @@
+.kef-sharecard-decorations {
+  display: flex;
+  align-items: center;
+  padding: 8px 4px 0;
+}
+
+.kef-sharecard-decoration-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.kef-sharecard-heart {
+  color: var(--orca-color-text-red);
+  font-size: 16px;
+  margin: 0 2px;
+}
+
+.kef-sharecard-decoration-logo {
+  font-style: italic;
+  font-size: 14px;
+  font-family: serif;
+}
+
+.kef-sharecard-decoration-date {
+  margin-left: auto;
+  font-size: 14px;
+}

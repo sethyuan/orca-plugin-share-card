@@ -1,11 +1,12 @@
 # Share Card
 
-A Orca Note plugin that provides the ability to create tasks.
+A Orca Note plugin that provides the ability to export notes in cards (image) for sharing through mobile phones.
 
 ## Usage
 
 1. Download the zip file from the [releases page](https://github.com/sethyuan/orca-bullet-threading/releases) and extract it into Orca Note's `plugins` directory.
 2. Start/restart Orca Note, enable the plugin under the app's settings.
+3. Export through blocks' context menu.
 
 ## Development Setup
 

@@ -15,7 +15,7 @@ export default defineConfig(({ command }) => {
     build: {
       minify: false,
       lib: {
-        entry: "src/main.ts",
+        entry: "src/main.tsx",
         fileName: "index",
         formats: ["es"],
       },

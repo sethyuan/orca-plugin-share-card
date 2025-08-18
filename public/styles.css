@@ -1,0 +1,54 @@
+@import url(style.css);
+
+.kef-sharecard.orca-exporting {
+  --orca-fontsize-base: 16px;
+}
+
+.kef-sharecard #main {
+  margin-top: 0;
+  background-color: #ffffff;
+  background-image: linear-gradient(135deg, #ffffff 0%, #f7fbff 50%, #eef6ff 100%);
+  /* fallback */
+  background-image: linear-gradient(135deg,
+      color-mix(in srgb, var(--orca-color-primary-5) 12%, white) 0%,
+      color-mix(in srgb, var(--orca-color-primary-5) 7%, white) 50%,
+      color-mix(in srgb, var(--orca-color-primary-5) 4%, white) 100%);
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+}
+
+.kef-sharecard .orca-repr-tag-props,
+.kef-sharecard .orca-block-breadcrumb,
+.kef-sharecard .orca-block-editor-go-btns,
+.kef-sharecard .orca-block-handle,
+.kef-sharecard .orca-tag-data-icon,
+.kef-sharecard .orca-block-ref-count-marker {
+  display: none;
+}
+
+.kef-sharecard .orca-panel {
+  min-height: 0 !important;
+}
+
+.kef-sharecard .orca-block-editor {
+  grid-template-columns: [editor-start] minmax(var(--orca-editor-min-width, 0), var(--orca-editor-max-width)) [editor-end];
+  padding: 20px;
+}
+
+.kef-sharecard .orca-block-editor-main {
+  background-color: var(--orca-color-bg-1);
+  background-image: none;
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.04), 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  border: 1px solid rgba(16, 24, 40, 0.06);
+  border-radius: 12px;
+  padding: 16px 20px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.kef-sharecard .orca-repr-ol-content::before {
+  color: var(--orca-color-primary-5);
+}
+
+.kef-sharecard .orca-tags {
+  padding-left: 0;
+}

@@ -3718,6 +3718,8 @@ export interface Orca {
  * various operations on blocks, tags, journals, and other repository data.
  */
 export type APIMsg =
+  /** Exports the specified block as a PNG image. */
+  | "export-png"
   /** Retrieves all blocks with the specified alias. */
   | "get-aliased-blocks"
   /** Retrieves all aliases in the repository. */
