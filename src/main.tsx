@@ -60,7 +60,24 @@ async function exportShareCard(blockId: DbId) {
   const key = `${pluginName}.exporting`
   localStorage.setItem(key, "1")
   try {
-    await orca.invokeBackend("export-png", blockId, WIDTH, true)
+    const result = await orca.invokeBackend("export-png", blockId, WIDTH, true)
+    const [ok] = result
+    if (ok) {
+      const [, filePath] = result
+      orca.notify(
+        "success",
+        t("Export completed, click me to locate the file."),
+        {
+          action: () => orca.invokeBackend("show-in-folder", filePath),
+        },
+      )
+    } else {
+      const [, err] = result
+      orca.notify(
+        "error",
+        t("Export failed with error: ${err}", { err: err.message }),
+      )
+    }
   } finally {
     localStorage.removeItem(key)
   }
