@@ -2,6 +2,8 @@
 
 A Orca Note plugin that provides the ability to export notes in cards (image) for sharing through mobile phones.
 
+<img width="780" height="460" alt="kq8mc0a4c628o-2850" src="https://github.com/user-attachments/assets/b9a6f942-b096-405a-abff-29ae39f039aa" />
+
 ## Usage
 
 1. Download the zip file from the [releases page](https://github.com/sethyuan/orca-bullet-threading/releases) and extract it into Orca Note's `plugins` directory.
