@@ -17,12 +17,6 @@ export async function load(_name: string) {
   // Your plugin code goes here.
   setupL10N(orca.state.locale, { "zh-CN": zhCN })
 
-  const key = `${pluginName}.exporting`
-  const isExporting = localStorage.getItem(key)
-  if (isExporting) {
-    setupCard()
-  }
-
   if (orca.state.blockMenuCommands[`${pluginName}.exportShareCard`] == null) {
     orca.blockMenuCommands.registerBlockMenuCommand(
       `${pluginName}.exportShareCard`,
@@ -43,6 +37,19 @@ export async function load(_name: string) {
       },
     )
   }
+
+  // Wait for orca-exporting to be attached
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const key = `${pluginName}.exporting`
+      const isExporting =
+        document.documentElement.classList.contains("orca-exporting") &&
+        localStorage.getItem(key)
+      if (isExporting) {
+        setupCard()
+      }
+    })
+  })
 
   console.log(`${pluginName} loaded.`)
 }
