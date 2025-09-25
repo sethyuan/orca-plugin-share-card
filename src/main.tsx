@@ -100,44 +100,52 @@ function setupCard() {
   )
   if (panel == null) return
 
-  const unsubscribe = subscribe(panel, async () => {
-    if (panel.view === "block") {
-      unsubscribe()
+  if (panel.view === "block") {
+    decorateCard()
+  } else {
+    const unsubscribe = subscribe(panel, async () => {
+      if (panel.view === "block") {
+        unsubscribe()
+        decorateCard()
+      }
+    })
+  }
+}
 
-      setTimeout(() => {
-        // Give long-form style
-        const rootBlock = document.querySelector(
-          ".orca-block-editor-blocks>.orca-block",
-        ) as HTMLElement | undefined
-        if (rootBlock) {
-          rootBlock.classList.add("orca-long-form")
-        }
-
-        // Move tags
-        const editorMain = document.querySelector(".orca-block-editor-main") as
-          | HTMLElement
-          | undefined
-        if (editorMain) {
-          const tags = document.querySelectorAll(
-            ".orca-panel.active>.orca-hideable:not(.orca-hideable-hidden) .orca-tags",
-          )
-          for (const tag of tags) {
-            editorMain.appendChild(tag)
-          }
-        }
-
-        const blockEditor = document.querySelector(".orca-block-editor") as
-          | HTMLElement
-          | undefined
-        if (blockEditor) {
-          // Inject elements
-          const decorations = document.createElement("div")
-          decorations.className = "kef-sharecard-decorations"
-          const root = createRoot(decorations)
-          root.render(<Decorations />)
-          blockEditor.appendChild(decorations)
-        }
-      }, 100)
+function decorateCard() {
+  setTimeout(() => {
+    // Give long-form style
+    const rootBlock = document.querySelector(
+      ".orca-block-editor-blocks>.orca-block",
+    ) as HTMLElement | undefined
+    console.log("rootBlock", rootBlock)
+    if (rootBlock) {
+      rootBlock.classList.add("orca-long-form")
     }
-  })
+
+    // Move tags
+    const editorMain = document.querySelector(".orca-block-editor-main") as
+      | HTMLElement
+      | undefined
+    if (editorMain) {
+      const tags = document.querySelectorAll(
+        ".orca-panel.active>.orca-hideable:not(.orca-hideable-hidden) .orca-tags",
+      )
+      for (const tag of tags) {
+        editorMain.appendChild(tag)
+      }
+    }
+
+    const blockEditor = document.querySelector(".orca-block-editor") as
+      | HTMLElement
+      | undefined
+    if (blockEditor) {
+      // Inject elements
+      const decorations = document.createElement("div")
+      decorations.className = "kef-sharecard-decorations"
+      const root = createRoot(decorations)
+      root.render(<Decorations />)
+      blockEditor.appendChild(decorations)
+    }
+  }, 100)
 }
